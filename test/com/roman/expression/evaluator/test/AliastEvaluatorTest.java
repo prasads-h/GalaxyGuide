@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.roman.expression.evalutor.AliasEvalator;;
+import com.gg.expression.evalutor.AliasEvalator;
 
 public class AliastEvaluatorTest {
 

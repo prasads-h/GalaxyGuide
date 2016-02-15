@@ -1,8 +1,0 @@
-package com.roman.storage;
-
-import com.roman.rules.IRule;
-
-public interface IRuleDBHandler {
-
-	IRule getRule(Character c);
-}

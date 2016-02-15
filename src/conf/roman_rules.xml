@@ -8,33 +8,33 @@
 		minOccurs="0">
 		<eval>
 			<operations>
-				<operation expression="nextletter is greater" perform="subtract"
+				<operation expression="nextletter is greater" perform="subtract" priority="10"
 					letters="V;X"/>
-				<operation perform="add" default="true"/>
+				<operation perform="add" default="true" priority="1"/>
 			</operations>						
 		</eval>
 	</letter>
-	<letter  symbol="V" creditvalue="5" maxOccurs="1" repeatitions="0"
+	<letter  symbol="V" creditvalue="5" maxOccurs="1" repeatitions="1"
 		minOccurs="0">
 		<operations>
-			<operation perform="add" default="true"/>
+			<operation perform="add" default="true" priority="1"/>
 		</operations>
 	</letter>
 	<letter  symbol="X" creditvalue="10" maxOccurs="4" repeatitions="3"
 		minOccurs="0">
 		<eval>
 			<operations>
-				<operation expression="nextletter is greater" perform="subtract"
+				<operation expression="nextletter is greater" perform="subtract" priority="10"
 					letters="L;C"/>
-				<operation perform="add" default="true"/>
+				<operation perform="add" default="true" priority="1"/>
 			</operations>						
 		</eval>
 	</letter>	
-	<letter  symbol="L" creditvalue="50" maxOccurs="1" repeatitions="0"
+	<letter  symbol="L" creditvalue="50" maxOccurs="1" repeatitions="1"
 		minOccurs="0">
 		<eval>
 			<operations>				
-				<operation perform="add" default="true"/>
+				<operation perform="add" default="true" priority="1"/>
 			</operations>						
 		</eval>
 	</letter>
@@ -42,25 +42,25 @@
 		minOccurs="0">
 		<eval>
 			<operations>
-				<operation expression="nextletter is greater" perform="subtract"
+				<operation expression="nextletter is greater" perform="subtract" priority="10"
 					letters="D;M"/>
-				<operation perform="add" default="true"/>
+				<operation perform="add" default="true" priority="1"/>
 			</operations>						
 		</eval>
 	</letter>	
-	<letter  symbol="D" creditvalue="500" maxOccurs="1" repeatitions="0"
+	<letter  symbol="D" creditvalue="500" maxOccurs="1" repeatitions="1"
 		minOccurs="0">
 		<eval>
 			<operations>				
-				<operation perform="add" default="true"/>
+				<operation perform="add" default="true" priority="1"/>
 			</operations>						
 		</eval>
 	</letter>
-	<letter  symbol="M" creditvalue="1000" maxOccurs="1" repeatitions="0"
+	<letter  symbol="M" creditvalue="1000" maxOccurs="4" repeatitions="3"
 		minOccurs="0">
 		<eval>
 			<operations>				
-				<operation perform="add" default="true"/>
+				<operation perform="add" default="true" priority="1"/>
 			</operations>						
 		</eval>
 	</letter>				
