@@ -1,0 +1,67 @@
+<root>
+<!-- repeatitions - denotes succesive repetitions
+	 maxOccurs - no of times a letter can occur in the string
+	 minOccurs - no of times a letter must occur in the string
+	 credtiValue - exchange value
+ -->
+	<letter  symbol="I" creditvalue="1" maxOccurs="4" repeatitions="3"
+		minOccurs="0">
+		<eval>
+			<operations>
+				<operation expression="nextletter is greater" perform="subtract"
+					letters="V;X"/>
+				<operation perform="add" default="true"/>
+			</operations>						
+		</eval>
+	</letter>
+	<letter  symbol="V" creditvalue="5" maxOccurs="1" repeatitions="0"
+		minOccurs="0">
+		<operations>
+			<operation perform="add" default="true"/>
+		</operations>
+	</letter>
+	<letter  symbol="X" creditvalue="10" maxOccurs="4" repeatitions="3"
+		minOccurs="0">
+		<eval>
+			<operations>
+				<operation expression="nextletter is greater" perform="subtract"
+					letters="L;C"/>
+				<operation perform="add" default="true"/>
+			</operations>						
+		</eval>
+	</letter>	
+	<letter  symbol="L" creditvalue="50" maxOccurs="1" repeatitions="0"
+		minOccurs="0">
+		<eval>
+			<operations>				
+				<operation perform="add" default="true"/>
+			</operations>						
+		</eval>
+	</letter>
+	<letter  symbol="C" creditvalue="100" maxOccurs="4" repeatitions="3"
+		minOccurs="0">
+		<eval>
+			<operations>
+				<operation expression="nextletter is greater" perform="subtract"
+					letters="D;M"/>
+				<operation perform="add" default="true"/>
+			</operations>						
+		</eval>
+	</letter>	
+	<letter  symbol="D" creditvalue="500" maxOccurs="1" repeatitions="0"
+		minOccurs="0">
+		<eval>
+			<operations>				
+				<operation perform="add" default="true"/>
+			</operations>						
+		</eval>
+	</letter>
+	<letter  symbol="M" creditvalue="1000" maxOccurs="1" repeatitions="0"
+		minOccurs="0">
+		<eval>
+			<operations>				
+				<operation perform="add" default="true"/>
+			</operations>						
+		</eval>
+	</letter>				
+</root>
