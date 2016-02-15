@@ -10,6 +10,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.gg.log.AppLogger;
 import com.gg.rules.IRule.Operation.operator;
 import com.gg.rules.exception.InvalidRuleException;
 
@@ -26,7 +27,7 @@ public class XMLRule implements IRule{
 	}
 
 	public static XMLRule valueOf(Node xmlNode) throws InvalidRuleException{
-		System.out.println("in valueOf " + xmlNode);
+		AppLogger.debug("in valueOf " + xmlNode);
 		NamedNodeMap attrMap = xmlNode.getAttributes();
 		
 		XMLRule thisRule = new XMLRule();

@@ -4,6 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.gg.log.AppLogger;
+import com.gg.rules.IRule;
+import com.gg.storage.AppDb;
 import com.gg.storage.DBFactory;
 
 public class AliasEvalator implements IExpressionEvaluator<String>, IInputMatcher{
@@ -20,7 +22,16 @@ public class AliasEvalator implements IExpressionEvaluator<String>, IInputMatche
 			AppLogger.debug("group count " + matcher.group(1));
 			AppLogger.debug("group count " + matcher.group(2));
 			String alias = matcher.group(1);
-			char romanletter = matcher.group(2).charAt(0);			
+			char romanletter = matcher.group(2).charAt(0);	
+			
+			IRule cRule = DBFactory.getRulesDBHandler().getRule(romanletter);
+			if(cRule == null)
+				return "assigning to invalid roman letter";
+			
+			if(alias.length() == 1 
+					&& DBFactory.getRulesDBHandler().getRule(alias.charAt(0)) != null)
+				return "cannot assign existing roman letter with alias";
+			
 			DBFactory.getAliasDBHandler().insertAlias(alias, romanletter);
 			
 			return "Succesfully inserted alias key : " + alias + " romanletter: " + romanletter;

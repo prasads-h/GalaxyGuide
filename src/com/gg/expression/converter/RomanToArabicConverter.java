@@ -20,7 +20,7 @@ public class RomanToArabicConverter implements IConverter<Long>{
 	private static Pattern GT_PATTERN = Pattern.compile("nextletter is greater");
 	
 	@Override
-	public ExpressionOutput<Long> convert(String exp) throws ConversionException {
+	public Long convert(String exp) throws ConversionException {
 		/*// TODO Auto-generated method stub
 		if(ruleMap == null){
 			AppLogger.info("Rule map is not created ");
@@ -84,7 +84,7 @@ public class RomanToArabicConverter implements IConverter<Long>{
 			result += lValue;
 		}
 		
-		return new ExpressionOutput<Long>(result);
+		return result;
 	}
 	
 	private long performOperation(operator o, long curcreditValue, long nextcreditValue){

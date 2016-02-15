@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.gg.expression.evalutor.AliasEvalator;
 
-public class AliastEvaluatorTest {
+public class AliastMatcherTest {
 
 	@Test
 	public void positiveInput() {

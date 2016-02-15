@@ -41,14 +41,16 @@ public class AssignmentEvaluator implements IExpressionEvaluator<String>, IInput
 			String expressionGroup = matcher.group(1);
 			String creditValue = matcher.group(3);
 			
-			StringTokenizer tokenizer = new StringTokenizer(expressionGroup, "\\s+");
+			StringTokenizer tokenizer = new StringTokenizer(expressionGroup, " ");
 			//List<Character> evalList = new ArrayList<Character>();
+			
+			
 			StringBuilder romanExp = new StringBuilder();
 			while(tokenizer.hasMoreTokens()){
 				String token = tokenizer.nextToken();
 				Character romanLetter = DBFactory.getAliasDBHandler().getRomanLetterForAlias(token.trim());
 				if((romanLetter == null || "".equals(romanLetter)) 
-						&& tokenizer.hasMoreTokens() && romanExp.length()== 0){ // unknow glob Silver is 34 Credits
+						&& tokenizer.hasMoreTokens()){ // unknow glob Silver is 34 Credits
 					throw new UnavailableWordException(token);
 				}else if(romanLetter == null && !tokenizer.hasMoreTokens()){// Silver is 34 Credits
 					long sum = 0;
@@ -64,7 +66,8 @@ public class AssignmentEvaluator implements IExpressionEvaluator<String>, IInput
 						newValue = (newValue /sum);					
 						
 					DBFactory.getCreditDBHandler().insertNewKey(token, newValue);
-					return "Inserted "  + token + " with value "+ creditValue;
+					AppLogger.debug("inserted token " + token + " sum " + newValue);
+					return "Inserted "  + token + " with value "+ newValue;
 				}else if(romanLetter != null){// glob glob Silver is 34 Credits
 					//TODO evaluate expression
 					//evalList.add(romanLetter);
@@ -84,7 +87,7 @@ public class AssignmentEvaluator implements IExpressionEvaluator<String>, IInput
 			sum = sum + DBFactory.getAliasDBHandler().getCreditValue(letter);
 		}*/
 		
-		return new RomanToArabicConverter().convert(romanExp).getOutput();
+		return new RomanToArabicConverter().convert(romanExp);
 		
 	}
 	
