@@ -22,11 +22,11 @@ public class InputExecutor {
 				throw new UnRecognizableInputException("I am not sure what you are asking for ::: " + inputExp);
 		}catch(EvaluatorException ee){
 			AppLogger.error("Error executing input  " + inputExp + "\n" , ee);
+			return ee.getMessage();
 		}catch (UnRecognizableInputException e) {
 			AppLogger.error(e.getMessage());
 			return e.getMessage();
-		}	
-		return "";
+		}			
 	}
 
 }

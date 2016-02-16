@@ -1,0 +1,12 @@
+Succesfully inserted alias key : glob romanletter: I
+Succesfully inserted alias key : prok romanletter: V
+Succesfully inserted alias key : pish romanletter: X
+Succesfully inserted alias key : tegj romanletter: L
+Inserted Silver with value 17
+Inserted Gold with value 14450
+Inserted Iron with value 195
+pish tegj glob glob  is 42
+glob prok Silver is 68 Credits
+glob prok Gold is 57800 Credits
+glob prok Iron is 780 Credits
+I am not sure what you are asking for ::: how much wood could a woodchuck chuck if a woodchuck could chuck wood ?

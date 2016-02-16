@@ -13,7 +13,7 @@ public class AppDb implements IDB{
 
 	private static AppDb _instance;
 	//not a good place to load have to move somewhere else
-	private static final String RULES_XML = "conf/roman_rules.xml";
+	private static final String RULES_XML = "roman_rules.xml";
 	private static Map<Character, IRule> ruleMap = null;
 	
 	static{
@@ -24,14 +24,14 @@ public class AppDb implements IDB{
 			ruleMap = new XMLRuleCreator().createRules(xmlStream);
 		}catch(Exception e){
 			AppLogger.error("unable to create rulemap " , e);
-		}		
+		}	
 	}
 	
 	private Map<String, Character> aliasStore =new HashMap<String, Character>();
 	
 	private Map<String, Long> creditStore = new HashMap<String, Long>();
 	private AppDb(){
-		
+			
 	}
 	
 	public synchronized static IDB getInstance(){

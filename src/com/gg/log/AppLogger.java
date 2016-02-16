@@ -19,7 +19,7 @@ public class AppLogger {
 	static{
 		try{
 			InputStream is = AppLogger.class.getClassLoader()
-					.getResourceAsStream("conf/app.properties");
+					.getResourceAsStream("app.properties");
 			appProperties = new Properties();
 			appProperties.load(is);
 			loglevel = Level.parse(appProperties.getProperty("LOG_LEVEL"));
