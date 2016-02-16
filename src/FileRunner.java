@@ -16,13 +16,19 @@ public class FileRunner {
 		BufferedReader ibr = null;
 		BufferedWriter obw = null;
 		try{
-			if(a[0] == null){
+			if(a.length == 0){
 				System.out.println("please mention input file as first argument");
 				return;
-			}				
+			}
+			
+			if(a.length <2){
+				System.out.println("please mention out file as second argument");
+				return;
+			}
+			
 			File inputFile = new File(a[0]);
 			ibr = new BufferedReader(new FileReader(inputFile));
-			File outputFile = new File("output.txt");
+			File outputFile = new File(a[1]);
 			obw = new BufferedWriter(new FileWriter(outputFile));
 			String str = "";
 			InputExecutor  inputExecutor = new InputExecutor();
@@ -33,7 +39,7 @@ public class FileRunner {
 				obw.write("\n");			
 			}
 		}catch(Exception e){
-			AppLogger.error(e.getMessage(), e);
+			System.out.println(e.getMessage());
 		}finally{
 			try{
 			if(ibr!= null)
